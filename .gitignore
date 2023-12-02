@@ -112,6 +112,9 @@ venv.bak/
 pyvenv.cfg
 share/
 bin/
+.devcontainer/
+.vscode-server/
+.vscode/
 
 # Spyder project settings
 .spyderproject
@@ -137,3 +140,9 @@ dmypy.json
 *.DS_Store
 tmp_*
 examples/fine-tuned_qa/local_cache/*
+examples/**/images/
+examples/**/*data/
+examples/*.csv
+examples/*.jsonl
+examples/*.pkl
+apps/text/**/*

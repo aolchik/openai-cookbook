@@ -1,0 +1,24 @@
+# create a docker compose file based on https://stackoverflow.com/questions/69635493/vscode-remote-container-avoid-reinstall-extensions-on-rebuild
+
+version: '3'
+services:
+  base: &base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspace
+    env_file:
+      - .env
+  shell:
+    <<: *base
+    entrypoint: ["/bin/bash", "--login", "-i"]
+  vscode:
+    <<: *base
+    volumes:
+      - ./.vscode-server:/root/.vscode-server
+    entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
+  
+
+
+
