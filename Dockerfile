@@ -18,13 +18,15 @@ RUN mamba init bash
 # Activate the environment:
 RUN echo "mamba activate openai-cookbook" >> ~/.bashrc
 
+# Suggested by https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo
+# This install requires manual configuration of tzdata
+# The thread suggests that maybe apt-get update && apt-get install libgl1 may solve the requirements
+# TODO: Solve tzdata configuration
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
 COPY requirements.txt ./
 RUN mamba run -n openai-cookbook pip install --upgrade pip
-
-# FIXME: Openai was not installed
-#RUN pip install --no-cache-dir -r requirements.txt
 RUN mamba run -n openai-cookbook pip install -r requirements.txt
-
 
 # FIXME: Is this required when working with docker-compose?
 COPY . .

@@ -8,3 +8,4 @@ arxiv
 pandas
 PyPDF2
 tqdm
+opencv-python
