@@ -4,3 +4,7 @@ tiktoken
 termcolor
 openai
 requests
+arxiv
+pandas
+PyPDF2
+tqdm

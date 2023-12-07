@@ -146,3 +146,5 @@ examples/*.csv
 examples/*.jsonl
 examples/*.pkl
 apps/text/**/*
+apps/*/processed/
+data/
